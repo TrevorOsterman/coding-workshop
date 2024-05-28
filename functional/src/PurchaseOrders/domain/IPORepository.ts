@@ -1,4 +1,4 @@
-import { None, Option, Result } from "oxide.ts";
+import { Option, Result } from "oxide.ts";
 import { UUID } from "../../utilities/uuid";
 import { PurchaseOrder } from "./PurchaseOrder";
 import { PONumber } from "./PONumber";
