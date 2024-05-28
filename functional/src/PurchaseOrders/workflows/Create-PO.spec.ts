@@ -17,7 +17,7 @@ describe("Create PO Workflow", () => {
 
   it("returns a uuid", async () => {
     const repo = constructPORepository();
-    const poResult = await createPO({ PORepo: repo })("syn");
+    const poResult = await createPO({ PORepo: repo })("syn", lineItems);
     const id = poResult.unwrap();
     expect(poResult.isOk()).toBeTruthy();
     expect(isUuid(id)).toBeTruthy();
@@ -25,7 +25,7 @@ describe("Create PO Workflow", () => {
 
   it("saves a purchase order to a repository", async () => {
     const repo = constructPORepository();
-    const result = await createPO({ PORepo: repo })("syn");
+    const result = await createPO({ PORepo: repo })("syn", lineItems);
     const id = result.unwrap();
     const poRes = await repo.fetch(id);
     const output = match(poRes, {
